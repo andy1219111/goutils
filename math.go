@@ -1,4 +1,4 @@
-package github.com/andy1219111/goutils
+package goutils
 
 import (
 	"fmt"
