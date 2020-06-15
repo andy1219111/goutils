@@ -1,4 +1,4 @@
-package utils
+package github.com/andy1219111/goutils
 
 import (
 	"reflect"
