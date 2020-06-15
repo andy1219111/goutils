@@ -9,31 +9,30 @@ import (
 
 //IniParser ini解析器
 type IniParser struct {
-	ConfFile   string
-	ConfReader *ini.File
+	INIReader *ini.File
 }
 
 //Load 加载ini配置文件
-func (i *IniParser) Load(confFile string) error {
-	if confFile == "" {
+func (i *IniParser) Load(iniFile string) error {
+	if iniFile == "" {
 		return errors.New("the conf file is is not exist")
 	}
 
-	iniFile, err := ini.Load(confFile)
+	iniFile, err := ini.Load(iniFile)
 	if err != nil {
 		return err
 	}
-	i.ConfReader = iniFile
+	i.INIReader = iniFile
 	return nil
 }
 
 //GetString 获取字符串参数
 func (i *IniParser) GetString(section, key string) string {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return ""
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return ""
 	}
@@ -42,11 +41,11 @@ func (i *IniParser) GetString(section, key string) string {
 
 //GetInt 获取整形参数
 func (i *IniParser) GetInt(section, key string) int {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return 0
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return 0
 	}
@@ -60,11 +59,11 @@ func (i *IniParser) GetInt(section, key string) int {
 
 //GetInt64 获取整形参数
 func (i *IniParser) GetInt64(section, key string) int64 {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return 0
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return 0
 	}
@@ -78,11 +77,11 @@ func (i *IniParser) GetInt64(section, key string) int64 {
 
 //GetFloat32 获取float32参数
 func (i *IniParser) GetFloat32(section, key string) float32 {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return 0
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return 0
 	}
@@ -96,11 +95,11 @@ func (i *IniParser) GetFloat32(section, key string) float32 {
 
 //GetFloat64 获取float64参数
 func (i *IniParser) GetFloat64(section, key string) float64 {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return 0
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return 0
 	}
@@ -114,11 +113,11 @@ func (i *IniParser) GetFloat64(section, key string) float64 {
 
 //GetBool 获取布尔值
 func (i *IniParser) GetBool(section, key string) bool {
-	if i.ConfReader == nil {
+	if i.INIReader == nil {
 		return false
 	}
 
-	s := i.ConfReader.Section(section)
+	s := i.INIReader.Section(section)
 	if s == nil {
 		return false
 	}
