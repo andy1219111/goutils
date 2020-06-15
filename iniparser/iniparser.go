@@ -18,11 +18,11 @@ func (i *IniParser) Load(iniFile string) error {
 		return errors.New("the conf file is is not exist")
 	}
 
-	iniFile, err := ini.Load(iniFile)
+	iniReader, err := ini.Load(iniFile)
 	if err != nil {
 		return err
 	}
-	i.INIReader = iniFile
+	i.INIReader = iniReader
 	return nil
 }
 
