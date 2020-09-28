@@ -1,4 +1,4 @@
-package http
+package goutils
 
 //有关Http协议GET和POST请求的封装
 
